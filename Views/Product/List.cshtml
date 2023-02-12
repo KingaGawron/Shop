@@ -1,0 +1,22 @@
+﻿@model IEnumerable<Shop.Models.Product>
+
+@{
+    ViewData["Title"] = "List";
+}
+
+<h1>List</h1>
+
+<ul>
+    @foreach (var product in Model)
+    {
+            <li>@product.Nazwa - @product.Img 
+                <a href="@Url.Action("Details","Product",new {Id =product.Id})">Details</a>
+            @using (Html.BeginForm("Delete", "Product", FormMethod.Post))
+            {
+                <input type="hidden" name="id" value="@product.Id" />
+                <button type="submit">Delete</button>
+
+            }
+            </li>
+    }
+</ul>

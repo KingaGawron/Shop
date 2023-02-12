@@ -1,0 +1,15 @@
+﻿@model Shop.Models.Product;
+@{
+    ViewData["title"] = "Add";
+}
+<h1>Dodaj Produkt</h1>
+
+@using (Html.BeginForm("Add","Product",FormMethod.Post)){
+    @Html.ValidationSummary();
+    <span>Nazwa: </span>@Html.TextBoxFor(x=>x.Nazwa);
+    <span>Opis: </span>@Html.TextBoxFor(x=>x.Opis);
+    <span>Img: </span>@Html.TextBoxFor(x=>x.Img);
+    <button type="submit">Wyślij</button>
+    <p>ID PO ZAPISIE: <strong>@TempData["Prodectid"]</strong></p>
+
+}
